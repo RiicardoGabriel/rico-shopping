@@ -76,6 +76,16 @@ function guardaLista() {
   ol.innerHTML = geral;
 }
 
+function clearAll() {
+  const btnClear = document.querySelector('.empty-cart');
+  btnClear.addEventListener('click', () => {
+    ol.innerHTML = '';
+    somaPrecos();
+  });
+}
+
+clearAll();
+
 window.onload = () => { 
   exibeDados('computador');
   guardaLista();
