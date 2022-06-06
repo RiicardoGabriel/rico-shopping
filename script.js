@@ -5,6 +5,17 @@ const createProductImageElement = (imageSource) => {
   return img;
 };
 
+const values = document.querySelector('.total-price');
+
+const somaPrecos = () => {
+  const li = document.querySelectorAll('.cart__item');
+  let price = 0;
+  li.forEach((element) => {
+    price += parseFloat(element.innerHTML.split('$')[1]);
+  });
+  values.innerText = parseFloat(price);
+};
+
 const createCustomElement = (element, className, innerText) => {
   const e = document.createElement(element);
   e.className = className;
@@ -17,6 +28,7 @@ const ol = document.querySelector('.cart__items');
 const cartItemClickListener = (event) => {
   event.target.remove();
   saveCartItems(ol.innerHTML);
+  somaPrecos();
 };
 
 const createCartItemElement = ({ id: sku, title: name, price: salePrice }) => {
@@ -24,6 +36,8 @@ const createCartItemElement = ({ id: sku, title: name, price: salePrice }) => {
   ol.appendChild(li);
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  somaPrecos();
+  li.addEventListener('click', cartItemClickListener);
   saveCartItems(ol.innerHTML);
   return li;
 };
@@ -48,12 +62,9 @@ const createProductItemElement = ({ id: sku, title: name, thumbnail: image }) =>
     getSkuFromProductItem(clik);
   });
   section.appendChild(btn);
-  
+
   return section;
 };
-
-function closeBigImgAndContainer() {
-}
 
 function exibeDados(item) {
   fetchProducts(item).then((itens) =>
