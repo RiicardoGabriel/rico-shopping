@@ -48,6 +48,7 @@ const createProductItemElement = ({ id: sku, title: name, thumbnail: image }) =>
     getSkuFromProductItem(clik);
   });
   section.appendChild(btn);
+  
   return section;
 };
 
