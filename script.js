@@ -66,10 +66,13 @@ const createProductItemElement = ({ id: sku, title: name, thumbnail: image }) =>
   return section;
 };
 
-function exibeDados(item) {
-  fetchProducts(item).then((itens) =>
-  itens.results.forEach((items) => createProductItemElement(items)));
-}
+const exibeDados = async () => {
+  const data = await fetchProducts('computador');
+  document.querySelector('.loading').remove();
+  data.results.forEach((item) => {
+    createProductItemElement(item);
+  });
+};
 
 function guardaLista() {
   const geral = getSavedCartItems();
@@ -86,7 +89,7 @@ function clearAll() {
 
 clearAll();
 
-window.onload = () => { 
-  exibeDados('computador');
+window.onload = () => {
+  exibeDados();
   guardaLista();
  };
