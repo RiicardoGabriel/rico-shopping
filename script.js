@@ -14,11 +14,16 @@ const createCustomElement = (element, className, innerText) => {
 
 const ol = document.querySelector('.cart__items');
 
+const cartItemClickListener = (event) => {
+  event.target.remove();
+};
+
 const createCartItemElement = ({ id: sku, title: name, price: salePrice }) => {
   const li = document.createElement('li');
   ol.appendChild(li);
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
+  li.addEventListener('click', cartItemClickListener);
 };
 
 const getSkuFromProductItem = (item) => {
@@ -51,9 +56,6 @@ function exibeDados(item) {
   fetchProducts(item).then((itens) =>
   itens.results.forEach((items) => createProductItemElement(items)));
 }
-
-const cartItemClickListener = (event) => {
-};
 
 window.onload = () => { 
   exibeDados('computador');
