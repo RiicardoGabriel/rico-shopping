@@ -1,4 +1,4 @@
-const fetchItem = async (id) => {
+const fetchItem = async (id) => {   
   try {
     const url = `https://api.mercadolibre.com/items/${id}`;
     const response = await fetch(url);
