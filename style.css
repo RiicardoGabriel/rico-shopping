@@ -11,7 +11,7 @@ body {
 
 .header {
   position: relative;
-  background-color: rgb(3, 52, 45);
+  background-color: rgb(18, 159, 138);
   display: flex;
   align-items: center;
   width: 100%;
@@ -75,7 +75,6 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
   width: 100%;
 }
 
@@ -131,19 +130,32 @@ body {
   display: flex;
   flex-basis: 32%;
   flex-flow: column wrap;
-  background-color: rgb(241, 241, 238);
-  height: 100vh;
+  background-color: rgb(179, 71, 71);
+  height: 820px;
+  border-radius: 5px;
+  position: fixed;
+}
+
+.cart__item {
+  color: white;
+  background-color: rgb(63, 167, 214);
+  width: 500px;
+  align-self: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
 }
 
 .cart .cart__items {
-  height: 500px;
+  height: 650px;
   overflow-y: scroll;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  margin-top: 10px;
+  width: 600px;
 }
 
-.empty-cart {
-  width: 170px;
-  height: 35px;
-  margin: 0 auto;
-  border: 2px solid rgb(5, 52, 219);
-  background-color: rgb(249, 249, 246);
+.empty-cart:hover {
+  background-color: rgb(250, 192, 94);
 }
