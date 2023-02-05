@@ -1,4 +1,4 @@
-require('../mocks/fetchSimulator');
+require('../mocks/fetchSimulator'); 
 const { fetchItem } = require('../helpers/fetchItem');
 const item = require('../mocks/item');
 
